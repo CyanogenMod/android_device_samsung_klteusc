@@ -54,13 +54,13 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     property_get("ro.bootloader", bootloader);
 
-    if (strstr(bootloader, "G900P")) {
-        /* kltespr */
-        property_set("ro.build.fingerprint", "samsung/kltespr/kltespr:4.4.2/KOT49H/G900PVPU1ANCB:user/release-keys");
-        property_set("ro.build.description", "kltespr-user 4.4.2 KOT49H G900PVPU1ANCB release-keys");
-        property_set("ro.product.model", "SM-G900P");
-        property_set("ro.product.device", "kltespr");
-        cdma_properties("1", "310120", "Sprint");
+    if (strstr(bootloader, "G900R4")) {
+        /* klteusc */
+        property_set("ro.build.fingerprint", "samsung/klteusc/klteusc:4.4.2/KOT49H/G900R4VXU1ANCF:user/release-keys");
+        property_set("ro.build.description", "klteusc-user 4.4.2 KOT49H G900R4VXU1ANCF release-keys");
+        property_set("ro.product.model", "SM-G900R4");
+        property_set("ro.product.device", "klteusc");
+        cdma_properties();
     }
     /* TODO: Add Sprint MVNOs */
 
@@ -69,14 +69,9 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
     INFO("Found bootloader id %s setting build properties for %s device\n", bootloader, devicename);
 }
 
-void cdma_properties(char default_cdma_sub[], char operator_numeric[],
-        char operator_alpha[])
+void cdma_properties()
 {
-    property_set("ril.subscription.types", "NV,RUIM");
-    property_set("ro.cdma.home.operator.numeric", operator_numeric);
-    property_set("ro.cdma.home.operator.alpha", operator_alpha);
-    property_set("ro.telephony.default_cdma_sub", default_cdma_sub);
-    property_set("ro.telephony.default_network", "10");
     property_set("ro.telephony.ril.v3", "newDriverCallU,newDialCode");
     property_set("telephony.lteOnCdmaDevice", "1");
+    property_set("ro.telephony.default_network", "10");
 }

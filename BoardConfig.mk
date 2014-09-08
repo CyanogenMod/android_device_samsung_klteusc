@@ -15,14 +15,14 @@
 # inherit from common klte
 -include device/samsung/klte-common/BoardConfigCommon.mk
 
-TARGET_OTA_ASSERT_DEVICE := kltespr
+TARGET_OTA_ASSERT_DEVICE := klteusc
 
 # Kernel
-TARGET_KERNEL_VARIANT_CONFIG := msm8974pro_sec_klte_spr_defconfig
+TARGET_KERNEL_VARIANT_CONFIG := msm8974pro_sec_klte_usc_defconfig
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/samsung/kltespr/init/init_klte.c
+TARGET_LIBINIT_DEFINES_FILE := device/samsung/klteusc/init/init_klte.c
 TARGET_UNIFIED_DEVICE := true
 
 # Partitions
