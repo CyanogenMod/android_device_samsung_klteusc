@@ -71,6 +71,12 @@ public class klteuscRIL extends RIL implements CommandsInterface {
     private boolean driverCallU = needsOldRilFeature("newDriverCallU");
     private boolean dialCode = needsOldRilFeature("newDialCode");
     private boolean samsungEmergency = needsOldRilFeature("samsungEMSReq");
+
+    public klteuscRIL(Context context, int preferredNetworkType,
+            int cdmaSubscription, Integer instanceId) {
+        this(context, preferredNetworkType, cdmaSubscription);
+    }
+
     public klteuscRIL(Context context, int networkMode,
             int cdmaSubscription) {
         super(context, networkMode, cdmaSubscription);
