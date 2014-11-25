@@ -34,5 +34,8 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 15728640
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2831155200
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12187581440
 
+# Radio
+BOARD_RIL_CLASS := ../../../device/samsung/klteusc/ril
+
 # inherit from the proprietary version
 -include vendor/samsung/klteusc/BoardConfigVendor.mk
