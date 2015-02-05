@@ -13,7 +13,7 @@ vendor/lib/liblbs_core.so
 vendor/lib/liblocationservice.so
 
 # NFC
-vendor/firmware/libpn547.so
+vendor/firmware/libpn547_fw.so
 
 # Qualcomm framework
 vendor/lib/libdiag.so
