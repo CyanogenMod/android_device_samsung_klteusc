@@ -19,6 +19,7 @@ TARGET_OTA_ASSERT_DEVICE := klteusc,klte
 
 # Kernel
 TARGET_KERNEL_VARIANT_CONFIG := msm8974pro_sec_klte_usc_defconfig
+BOARD_CUSTOM_BOOTIMG_MK := device/samsung/klteusc/mkbootimg.mk
 
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_msm
