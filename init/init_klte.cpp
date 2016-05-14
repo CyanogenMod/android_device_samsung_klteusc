@@ -43,7 +43,7 @@ void cdma_properties(char const *default_cdma_sub,
     property_set("ro.cdma.home.operator.numeric", operator_numeric);
     property_set("ro.cdma.home.operator.alpha", operator_alpha);
     property_set("ro.telephony.default_cdma_sub", default_cdma_sub);
-    property_set("ro.telephony.default_network", "10");
+    property_set("ro.telephony.default_network", "8");
     property_set("ro.telephony.ril.config", "newDriverCallU,newDialCode");
     property_set("telephony.lteOnCdmaDevice", "1");
 }
@@ -68,11 +68,11 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
 
     if (strstr(bootloader, "G900R4")) {
         /* klteusc */
-        property_set("ro.build.fingerprint", "samsung/klteusc/klteusc:4.4.2/KOT49H/G900R4VXU1ANCF:user/release-keys");
-        property_set("ro.build.description", "klteusc-user 4.4.2 KOT49H G900R4VXU1ANCF release-keys");
+        property_set("ro.build.fingerprint", "samsung/klteusc/klteusc:6.0.1/MMB29M/G900R4VXU2CPD2:user/release-keys");
+        property_set("ro.build.description", "klteusc-user 6.0.1 MMB29M G900R4VXU2CPD2 release-keys");
         property_set("ro.product.model", "SM-G900R4");
         property_set("ro.product.device", "klteusc");
-        cdma_properties("0", "311580", "U.S.Cellular");
+        cdma_properties("0", "311580", "U.S. Cellular");
     }
 
     property_get("ro.product.device", device);
