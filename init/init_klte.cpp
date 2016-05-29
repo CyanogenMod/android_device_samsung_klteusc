@@ -73,6 +73,13 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.product.model", "SM-G900R4");
         property_set("ro.product.device", "klteusc");
         cdma_properties("0", "311580", "U.S. Cellular");
+    } else if (strstr(bootloader, "G900R7")) {
+        /* klteacg - CSpire variant */
+        property_set("ro.build.fingerprint", "samsung/klteacg/klteacg:5.0/LRX21T/G900R7WWU3BOH1:user/release-keys");
+        property_set("ro.build.description", "klteacg-user 5.0 LRX21T G900R7WWU3BOH1 release-keys");
+        property_set("ro.product.model", "SM-G900R7");
+        property_set("ro.product.device", "klteacg");
+        cdma_properties("0", "310000", "Default");
     }
 
     property_get("ro.product.device", device);
