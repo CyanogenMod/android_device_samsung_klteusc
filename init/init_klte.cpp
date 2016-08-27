@@ -37,8 +37,6 @@
 
 #include "init_msm8974.h"
 
-#define ISMATCH(a, b) (!strncmp((a), (b), PROP_VALUE_MAX))
-
 void cdma_properties(char const *default_cdma_sub,
         char const *operator_numeric, char const *operator_alpha)
 {
@@ -53,26 +51,20 @@ void cdma_properties(char const *default_cdma_sub,
 
 void init_target_properties()
 {
-    char platform[PROP_VALUE_MAX];
-    char bootloader[PROP_VALUE_MAX];
-    char device[PROP_VALUE_MAX];
-    char devicename[PROP_VALUE_MAX];
-    int rc;
-
-    rc = property_get("ro.board.platform", platform);
-    if (!rc || !ISMATCH(platform, ANDROID_TARGET))
+    std::string platform = property_get("ro.board.platform");
+    if (platform != ANDROID_TARGET)
         return;
 
-    property_get("ro.bootloader", bootloader);
+    std::string bootloader = property_get("ro.bootloader");
 
-    if (strstr(bootloader, "G900R4")) {
+    if (bootloader.find("G900R4") == 0) {
         /* klteusc */
         property_set("ro.build.fingerprint", "samsung/klteusc/klteusc:6.0.1/MMB29M/G900R4VXU2CPD2:user/release-keys");
         property_set("ro.build.description", "klteusc-user 6.0.1 MMB29M G900R4VXU2CPD2 release-keys");
         property_set("ro.product.model", "SM-G900R4");
         property_set("ro.product.device", "klteusc");
         cdma_properties("0", "311580", "U.S. Cellular");
-    } else if (strstr(bootloader, "G900R7")) {
+    } else if (bootloader.find("G900R7") == 0) {
         /* klteacg - CSpire variant */
         property_set("ro.build.fingerprint", "samsung/klteacg/klteacg:5.0/LRX21T/G900R7WWU3BOH1:user/release-keys");
         property_set("ro.build.description", "klteacg-user 5.0 LRX21T G900R7WWU3BOH1 release-keys");
@@ -81,7 +73,6 @@ void init_target_properties()
         cdma_properties("0", "310000", "Default");
     }
 
-    property_get("ro.product.device", device);
-    strlcpy(devicename, device, sizeof(devicename));
-    INFO("Found bootloader id %s setting build properties for %s device\n", bootloader, devicename);
+    std::string device = property_get("ro.product.device");
+    INFO("Found bootloader id %s setting build properties for %s device\n", bootloader.c_str(), device.c_str());
 }
