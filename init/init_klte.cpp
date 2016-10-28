@@ -59,8 +59,8 @@ void init_target_properties()
 
     if (bootloader.find("G900R4") == 0) {
         /* klteusc */
-        property_set("ro.build.fingerprint", "samsung/klteusc/klteusc:6.0.1/MMB29M/G900R4VXU2CPD2:user/release-keys");
-        property_set("ro.build.description", "klteusc-user 6.0.1 MMB29M G900R4VXU2CPD2 release-keys");
+        property_set("ro.build.fingerprint", "samsung/klteusc/klteusc:6.0.1/MMB29M/G900R4VXU2CPF2:user/release-keys");
+        property_set("ro.build.description", "klteusc-user 6.0.1 MMB29M G900R4VXU2CPF2 release-keys");
         property_set("ro.product.model", "SM-G900R4");
         property_set("ro.product.device", "klteusc");
         cdma_properties("0", "311580", "U.S. Cellular");
